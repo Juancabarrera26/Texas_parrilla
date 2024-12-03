@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores - Texas Parrilla</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Proveedores</h1>
+    </header>
+    <main>
+        <section id="proveedores-carnes">
+            <h2>Proveedores de Carnes</h2>
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Contacto</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Código</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" value="Carnes Lomas" class="editable"></td>
+                        <td><input type="text" value="Juan Pérez" class="editable"></td>
+                        <td><input type="text" value="+57 310 555 1234" class="editable"></td>
+                        <td><input type="text" value="Calle 45 #12-34, Bogotá" class="editable"></td>
+                        <td><input type="text" value="CL701" class="editable"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="Avecol S.A." class="editable"></td>
+                        <td><input type="text" value="María González" class="editable"></td>
+                        <td><input type="text" value="+57 311 789 6543" class="editable"></td>
+                        <td><input type="text" value="Carrera 10 #25-50, Medellín" class="editable"></td>
+                        <td><input type="text" value="AVSA706" class="editable"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="Del Campo Proveeduría" class="editable"></td>
+                        <td><input type="text" value="Carlos Ramírez" class="editable"></td>
+                        <td><input type="text" value="+57 315 123 9876" class="editable"></td>
+                        <td><input type="text" value="Avenida 68 #34-12, Cali" class="editable"></td>
+                        <td><input type="text" value="DCP709" class="editable"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="proveedores-hamburguesas">
+            <h2>Proveedores de Hamburguesas</h2>
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Contacto</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Código</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" value="Dulcepan Ltda." class="editable"></td>
+                        <td><input type="text" value="Patricia Orozco" class="editable"></td>
+                        <td><input type="text" value="+57 312 222 3344" class="editable"></td>
+                        <td><input type="text" value="Carrera 8 #16-20, Cartagena" class="editable"></td>
+                        <td><input type="text" value="DULT402" class="editable"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="Lácteos Finos" class="editable"></td>
+                        <td><input type="text" value="Alejandro Torres" class="editable"></td>
+                        <td><input type="text" value="+57 301 456 7890" class="editable"></td>
+                        <td><input type="text" value="Calle 30 #5-18, Barranquilla" class="editable"></td>
+                        <td><input type="text" value="LF707" class="editable"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="proveedores-otros">
+            <h2>Proveedores de Otros Productos</h2>
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>Proveedor</th>
+                        <th>Contacto</th>
+                        <th>Teléfono</th>
+                        <th>Dirección</th>
+                        <th>Código</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" value="CondiSalsas" class="editable"></td>
+                        <td><input type="text" value="Sofia Mendoza" class="editable"></td>
+                        <td><input type="text" value="+57 320 111 2233" class="editable"></td>
+                        <td><input type="text" value="Avenida 19 #45-30, Bogotá" class="editable"></td>
+                        <td><input type="text" value="CS305" class="editable"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="Frescampo" class="editable"></td>
+                        <td><input type="text" value="Andrés López" class="editable"></td>
+                        <td><input type="text" value="+57 317 654 3210" class="editable"></td>
+                        <td><input type="text" value="Calle 50 #25-15, Manizales" class="editable"></td>
+                        <td><input type="text" value="FS301" class="editable"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" value="Bebidas Ricos" class="editable"></td>
+                        <td><input type="text" value="Laura Pineda" class="editable"></td>
+                        <td><input type="text" value="+57 318 987 6543" class="editable"></td>
+                        <td><input type="text" value="Carrera 7 #10-25, Bucaramanga" class="editable"></td>
+                        <td><input type="text" value="BR308" class="editable"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="accessibility-controls">
+            <button id="toggle-contrast" class="btn-contrast">Contraste</button>
+            <button id="increase-font" class="btn-font">A+</button>
+            <button id="decrease-font" class="btn-font">A-</button>
+        </div>
+    <a href="inventario.html" class="btn-primary">Volver al inventario</a>
+        <script src="script.js"></script>
+    </main>
+</body>
+</html>

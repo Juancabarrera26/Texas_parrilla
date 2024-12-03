@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a Inventario - Texas Parrilla</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para el formulario de acceso */
+        body {
+            margin: 0;
+            font-family: "Verdana", sans-serif;
+            background: linear-gradient(to bottom right, #222, rgb(158, 1, 1));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .login-container h1 {
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            background-color: #222;
+            color: white;
+            box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container input[type="password"]:focus {
+            outline: none;
+            border: 1px solid orange;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: orange;
+            color: #111;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #e69500;
+        }
+
+        .error-message {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Acceso a Inventario</h1>
+        <form id="loginForm" onsubmit="return validarContraseña(event)">
+            <label for="contraseña">Contraseña de Administrador</label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa la contraseña" required>
+            <button type="submit">Acceder</button>
+        </form>
+
+        <div id="errorMessage" class="error-message" style="display:none;">
+            <p>¡Contraseña incorrecta! Intenta de nuevo.</p>
+        </div>
+    </div>
+
+    <script>
+        function validarContraseña(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+
+            var contraseña = document.getElementById("contraseña").value;
+
+            // Contraseña correcta del administrador
+            var contraseñaAdmin = "AdminInventario123";
+
+            // Verificar si la contraseña es correcta
+            if (contraseña === contraseñaAdmin) {
+                // Si la contraseña es correcta, redirigir al inventario real
+                window.location.href = "inventarioReal.html"; // Redirige a la página real del inventario
+            } else {
+                // Si la contraseña es incorrecta, mostrar el mensaje de error
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

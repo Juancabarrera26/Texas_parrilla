@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Real - Texas Parrilla</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tu estilo para los campos de cantidad y tablas está intacto */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Inventario Real</h1>
+    </header>
+    <main>
+        <style>
+            /* Estilo para los campos de cantidad */
+            input[type="number"] {
+                width: 80px;
+                padding: 8px;
+                font-size: 16px;
+                text-align: center;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                background-color: #f9f9f9;
+                transition: border-color 0.3s ease;
+            }
+    
+            input[type="number"]:focus {
+                border-color: #007bff;
+                background-color: #fff;
+            }
+    
+            input[type="number"]:disabled {
+                background-color: #e9ecef;
+                border-color: #ddd;
+            }
+    
+            td {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Inventario</h1>
+        </header>
+        <main>
+            <section id="carnes">
+                <h2>Carnes</h2>
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Precio por kilo (COP)</th>
+                            <th>Cantidad (kg)</th>
+                            <th>Costo total (COP)</th>
+                            <th>Codigo proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Res (Lomo)</td>
+                            <td>60,000</td>
+                            <td><input type="number" id="lomoCantidad" value="26" onchange="calcularCosto('lomo', 60000)"></td>
+                            <td id="lomoCosto">1,560,000</td>
+                            <td><a href="proveedor.html#proveedor-lomas">CL701</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pollo (Pechuga)</td>
+                            <td>15,600</td>
+                            <td><input type="number" id="polloCantidad" value="18" onchange="calcularCosto('pollo', 15600)"></td>
+                            <td id="polloCosto">280,800</td>
+                            <td><a href="proveedor.html#proveedor-avecol">AVSA706</a></td>
+                        </tr>
+                        <tr>
+                            <td>Costillas de Cerdo</td>
+                            <td>17,500</td>
+                            <td><input type="number" id="cerdoCantidad" value="21" onchange="calcularCosto('cerdo', 17500)"></td>
+                            <td id="cerdoCosto">367,500</td>
+                            <td><a href="proveedor.html#proveedor-delcampo">DCP709</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <section id="hamburguesas">
+                <h2>Hamburguesas</h2>
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Precio por unidad (COP)</th>
+                            <th>Cantidad (unidad y kg)</th>
+                            <th>Costo total (COP)</th>
+                            <th>Codigo proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pan de hamburguesa</td>
+                            <td>500</td>
+                            <td><input type="number" id="panHamburguesaCantidad" value="350" onchange="calcularCosto('panHamburguesa', 500)"></td>
+                            <td id="panHamburguesaCosto">175,000</td>
+                            <td><a href="proveedor.html#proveedor-dulcepan">DULT402.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Carne de hamburguesa</td>
+                            <td>30,000</td>
+                            <td><input type="number" id="carneHamburguesaCantidad" value="52.5" onchange="calcularCosto('carneHamburguesa', 30000)"></td>
+                            <td id="carneHamburguesaCosto">1,575,000</td>
+                            <td><a href="proveedor.html#proveedor-lomas">CL701</a></td>
+                        </tr>
+                        <tr>
+                            <td>Queso cheddar</td>
+                            <td>35,000</td>
+                            <td><input type="number" id="quesoCantidad" value="7" onchange="calcularCosto('queso', 35000)"></td>
+                            <td id="quesoCosto">245,000</td>
+                            <td><a href="proveedor.html#proveedor-lacteosfinos">LF707</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <section id="perros-calientes">
+                <h2>Perros Calientes</h2>
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Precio por unidad (COP)</th>
+                            <th>Cantidad (unidad y kg)</th>
+                            <th>Costo total (COP)</th>
+                            <th>Codigo proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Salchichas</td>
+                            <td>800</td>
+                            <td><input type="number" id="salchichasCantidad" value="140" onchange="calcularCosto('salchichas', 800)"></td>
+                            <td id="salchichasCosto">112,000</td>
+                            <td><a href="proveedor.html#proveedor-carnes">PD401</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pan de perro caliente</td>
+                            <td>500</td>
+                            <td><input type="number" id="panPerroCantidad" value="140" onchange="calcularCosto('panPerro', 500)"></td>
+                            <td id="panPerroCosto">70,000</td>
+                            <td><a href="proveedor.html#proveedor-dulcepan">DULT402</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mostaza y Ketchup</td>
+                            <td>20,000</td>
+                            <td><input type="number" id="mostazaKetchupCantidad" value="3.5" onchange="calcularCosto('mostazaKetchup', 20000)"></td>
+                            <td id="mostazaKetchupCosto">70,000</td>
+                            <td><a href="proveedor.html#proveedor-condisalsas">CS305</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <section id="otros">
+                <h2>Bebidas y otros Platos</h2>
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Ingrediente</th>
+                            <th>Precio por unidad/kilo (COP)</th>
+                            <th>Cantidad (unidad y kg)</th>
+                            <th>Costo total (COP)</th>
+                            <th>Codigo proveedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Papas congeladas</td>
+                            <td>8,000</td>
+                            <td><input type="number" id="papasCantidad" value="25" onchange="calcularCosto('papas', 8000)"></td>
+                            <td id="papasCosto">200,000</td>
+                            <td><a href="proveedor.html#proveedor-frescampo">FS301</a></td>
+                        </tr>
+                        <tr>
+                            <td>Salsas variadas</td>
+                            <td>15,000</td>
+                            <td><input type="number" id="salsasCantidad" value="10" onchange="calcularCosto('salsas', 15000)"></td>
+                            <td id="salsasCosto">150,000</td>
+                            <td><a href="proveedor.html#proveedor-condisalsas">CS305</a></td>
+                        </tr>
+                        <tr>
+                            <td>Bebidas gaseosas</td>
+                            <td>2,500</td>
+                            <td><input type="number" id="bebidasCantidad" value="50" onchange="calcularCosto('bebidas', 2500)"></td>
+                            <td id="bebidasCosto">125,000</td>
+                            <td><a href="proveedor.html#proveedor-bebidasricos">BR308</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <div class="accessibility-controls">
+                <button id="toggle-contrast" class="btn-contrast">Contraste</button>
+                <button id="increase-font" class="btn-font">A+</button>
+                <button id="decrease-font" class="btn-font">A-</button>
+            </div>
+        <a href="index.html" class="btn-primary">Volver al inicio</a>
+            <script src="script.js"></script>
+        </main>
+    </body>
+    </html>
+    </main>
+</body>
+</html>

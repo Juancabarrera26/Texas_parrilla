@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Parrilla - Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Verdana", sans-serif;
+            background: linear-gradient(to bottom right, #222, rgb(158, 1, 1));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .login-container img {
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h1 {
+            color: orange;
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            background-color: #222;
+            color: white;
+            box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            outline: none;
+            border: 1px solid orange;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: orange;
+            color: #111;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #e69500;
+        }
+
+        .login-container a {
+            color: orange;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .login-container .role-btn {
+            width: 48%;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .login-container .role-btn:hover {
+            background-color: #e69500;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .error-message {
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+        }
+
+        .error-message a {
+            color: yellow;
+            text-decoration: underline;
+        }
+
+        .error-message button {
+            background-color: #ff4d4d;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+        }
+
+        .error-message button:hover {
+            background-color: #ff2a2a;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo texas.jpg" alt="Texas Parrilla" class="logo">
+        <h1>Inicio de Sesión</h1>
+        <form id="loginForm" onsubmit="return validarLogin(event)">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Ingresa tu contraseña" required>
+            
+            <div class="btn-container">
+                <button type="button" class="role-btn" onclick="seleccionarRol('admin')">Administrador</button>
+                <button type="button" class="role-btn" onclick="seleccionarRol('usuario')">Usuario</button>
+            </div>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        
+        <!-- Mensaje de error con opción de contactar -->
+        <div id="errorMessage" class="error-message" style="display:none;">
+            <p>¡Error! Las credenciales o el rol son incorrectos. Si necesitas ayuda, por favor contacta al soporte.</p>
+            <p><strong>Correo de soporte:</strong> <a href="mailto:Support.admin@texasPa.com">Support.admin@texasPa.com</a></p>
+            <p><strong>Teléfono:</strong> (601) 123-4567</p>
+            <button onclick="resetForm()">Volver a intentar</button>
+        </div>
+    </div>
+    
+    <script>
+        var rolSeleccionado = "";
+
+        function seleccionarRol(rol) {
+            rolSeleccionado = rol;
+            alert("Rol seleccionado: " + rol);
+        }
+
+        function validarLogin(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+
+            var usuario = document.getElementById("usuario").value;
+            var contraseña = document.getElementById("contraseña").value;
+
+            // Usuario y contraseña correctos para Admin y Usuario
+            var usuarioAdmin = "Admin@Texaspa.co";
+            var contraseñaAdmin = "Texas123";
+            var usuarioUsuario = "usuario@Texaspa.co";
+            var contraseñaUsuario = "Usuario123";
+
+            // Verificar si las credenciales son correctas
+            if ((usuario === usuarioAdmin && contraseña === contraseñaAdmin) || 
+                (usuario === usuarioUsuario && contraseña === contraseñaUsuario)) {
+                window.location.href = "index.html"; // Redirige a la página principal (el mismo archivo para ambos roles)
+            } else {
+                // Si hay un error, mostrar mensaje de error
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+
+        function resetForm() {
+            // Resetear el formulario para intentar de nuevo
+            document.getElementById("usuario").value = "";
+            document.getElementById("contraseña").value = "";
+            document.getElementById("errorMessage").style.display = "none";
+        }
+    </script>
+</body>
+</html>

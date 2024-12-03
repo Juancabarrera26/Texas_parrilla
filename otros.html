@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebidas y Otros - Menú</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom right, #222, rgb(221, 133, 0));
+        color: white;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .menu-container {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        color: orange;
+        margin-bottom: 20px;
+    }
+
+    .menu-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-bottom: 1px solid #555;
+    }
+
+    .menu-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-item span {
+        font-size: 1.2em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: orange;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #e69500;
+    }
+</style>
+<body>
+    <div class="menu-container">
+        <h1>Bebidas y Otros</h1>
+        <img src="WEB-BEBIDA-4-1024x552.png" alt="Deliciosas bebidas y más">
+        <img src="costillas-de-cerdo-a-la-parrilla.jpg" alt="Otros">
+        <div class="menu-item">
+            <span>Costillas BBQ</span>
+            <span>$24,000</span>
+        </div>
+        <div class="menu-item">
+            <span>Limonada natural</span>
+            <span>$4,000</span>
+        </div>
+        <div class="menu-item">
+            <span>Jugos naturales</span>
+            <span>$7,000</span>
+        </div>
+        <div class="menu-item">
+            <span>Jugos en agua</span>
+            <span>$6,000</span>
+        </div>
+        <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+</body>
+</html>
